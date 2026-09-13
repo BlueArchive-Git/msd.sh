@@ -21,7 +21,7 @@
 ## 安装方法
 使用 make（推荐）
 ```bash
-PREFIX=/usr/local/bin make install
+PREFIX=/usr/local make install
 ```
 或者手动安装
 ```bash
