@@ -19,7 +19,42 @@
 - 多参数，可自定义URL中的所有可变字段，以及下载目录，文件名
 
 ## 安装方法
-使用 make（推荐）
+如果你使用 Debian GNU/Linux 系发行版或者 Android 上的 Termux（APT Bootstrap），那么你可以添加我们的镜像源后直接通过 APT 安装，这是推荐的做法
+
+### Termux
+先添加仓库 GPG Key（需安装 gnupg）
+```bash
+curl -fsSL https://bluearchive-git.github.io/apt-mirror/bluearchive-git.gpg.key | gpg --dearmor > $PREFIX/etc/apt/trusted.gpg.d/bluearchive-git.gpg
+```
+
+写入软件包源配置
+```bash
+echo "deb https://bluearchive-git.github.io/apt-mirror/ termux main" >> $PREFIX/etc/apt/sources.list
+```
+
+更新源索引并安装 msd
+```bash
+apt update
+apt install msd -y
+```
+
+### Debian GNU/Linux 系发行版
+先添加仓库 GPG Key（需安装 gnupg）
+```bash
+curl -fsSL https://bluearchive-git.github.io/apt-mirror/bluearchive-git.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/bluearchive-git.gpg
+```
+写入软件包源配置
+```bash
+echo "deb https://bluearchive-git.github.io/apt-mirror/ debian main" | sudo tee /etc/apt/sources.list.d/bluearchive.list
+```
+更新源索引并安装 msd
+```bash
+sudo apt update
+sudo apt install msd -y
+```
+
+如果你想使用手动安装，那么有以下两种方法
+使用 make
 ```bash
 PREFIX=/usr/local make install
 ```
