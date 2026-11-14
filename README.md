@@ -34,8 +34,8 @@ echo "deb https://bluearchive-git.github.io/apt-mirror/ termux main" >> $PREFIX/
 
 更新源索引并安装 msd
 ```bash
-apt update
-apt install msd -y
+pkg update
+pkg install msd -y
 ```
 
 ### Debian GNU/Linux 系发行版
